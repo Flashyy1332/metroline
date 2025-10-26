@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>METROLINE — Загрузочный экран</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Swiper CSS (для карусели) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+  <!-- Наши стили -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Анимированный фон (туннель/огни) -->
+  <div class="bg">
+    <div class="tunnel"></div>
+    <div class="streaks"></div>
+    <div class="dust"></div>
+  </div>
+
+  <!-- Основной контейнер -->
+  <main class="wrap">
+    <!-- Логотип/название -->
+    <header class="glass logo-block">
+      <div class="logo-text">
+        <span class="dot"></span>
+        <h1>METROLINE</h1>
+      </div>
+      <p class="muted">Добро пожаловать! Пожалуйста, ожидайте подключения к серверу.</p>
+    </header>
+
+    <!-- Карусель команды -->
+    <section class="glass staff-block">
+      <div class="section-title">
+        <h2>Команда сервера</h2>
+        <p class="muted">Редактируйте список в <strong>script.js</strong> — и карточки обновятся автоматически.</p>
+      </div>
+
+      <!-- Обёртка Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper" id="staffSlider">
+          <!-- Слайды будут сгенерированы из staffList в script.js -->
+        </div>
+        <!-- Навигация -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Прогресс и статус -->
+    <section class="glass progress-block">
+      <div class="progress-bar">
+        <div class="progress-rail"></div>
+        <div class="progress-glow"></div>
+      </div>
+      <p id="loadingStatus" class="loading-status">Загрузка...</p>
+    </section>
+  </main>
+
+  <!-- Скрипты: Swiper + наш -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
