@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>METROLINE NORANK — ЕДИНЫЙ УСТАВ СЕРВЕРА</title>
   <meta name="description" content="Официальный одностраничный сайт-устав сервера METROLINE NORANK. Вступает в силу с 26.10.2025. Донат не даёт иммунитета." />
   <style>
@@ -19,14 +19,12 @@
       --success:#56ffa6;
       --shadow:0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
       --radius:20px;
-      --safe-top: env(safe-area-inset-top);
-      --safe-bottom: env(safe-area-inset-bottom);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
 
-    /* ======= ФОН (адаптирован для мобилок) ======= */
+    /* ======= ФОН (обновлённый) ======= */
     body{
       margin:0; color:var(--text);
       background:
@@ -37,8 +35,6 @@
       line-height:1.6;
       overflow-x:hidden;
       position:relative;
-      padding-top:var(--safe-top);
-      padding-bottom:var(--safe-bottom);
     }
     body::before{
       content:"";
@@ -55,7 +51,11 @@
       animation:aurora-rotate 48s linear infinite;
       opacity:.7;
     }
-    @keyframes aurora-rotate{ 0%{transform:rotate(0deg) scale(1.05)} 50%{transform:rotate(180deg) scale(1.08)} 100%{transform:rotate(360deg) scale(1.05)} }
+    @keyframes aurora-rotate{
+      0%{transform:rotate(0deg) scale(1.05)}
+      50%{transform:rotate(180deg) scale(1.08)}
+      100%{transform:rotate(360deg) scale(1.05)}
+    }
     body::after{
       content:"";
       position:fixed; inset:0;
@@ -69,127 +69,125 @@
     }
     @keyframes grid-shift{ 0%{transform:translate3d(0,0,0)} 100%{transform:translate3d(-80px,-80px,0)} }
 
-    .bg-blobs{ position:fixed; inset:0; pointer-events:none; z-index:-2; filter:blur(70px) saturate(140%);
+    .bg-blobs{
+      position:fixed; inset:0; pointer-events:none; z-index:-2;
+      filter:blur(70px) saturate(140%);
       background:
         radial-gradient(700px 350px at 20% 18%, rgba(0,87,183,.45), transparent 60%),
         radial-gradient(560px 520px at 82% 14%, rgba(255,215,0,.28), transparent 50%),
         radial-gradient(520px 420px at 52% 88%, rgba(90,80,255,.22), transparent 48%),
         radial-gradient(420px 320px at 78% 82%, rgba(0,87,183,.24), transparent 55%);
-      opacity:.7; animation:blobs-float 26s ease-in-out infinite alternate;
+      opacity:.7;
+      animation:blobs-float 26s ease-in-out infinite alternate;
     }
     @keyframes blobs-float{ 0%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(12px,-10px,0) scale(1.03)} 100%{transform:translate3d(-10px,8px,0) scale(1.01)} }
 
     /* UA-лента */
-    .ua-bar{ position:fixed; inset:0 0 auto 0; height:6px; z-index:10000; background:linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow:0 6px 16px rgba(0,0,0,.35); }
-
-    /* Навигация */
-    .nav{ position:sticky; top:0; z-index:1000; backdrop-filter:saturate(140%) blur(14px);
-      background:linear-gradient(180deg, rgba(10,14,30,.62), rgba(10,14,30,.36)); border-bottom:1px solid rgba(255,255,255,.08);
+    .ua-bar{
+      position:fixed; inset:0 0 auto 0; height:6px; z-index:10000;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow:0 6px 16px rgba(0,0,0,.35);
     }
-    .nav-inner{ max-width:1200px; margin:0 auto; display:flex; gap:10px; align-items:center; justify-content:space-between; padding:10px 14px; }
-    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px }
-    .brand .dot{ width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent) }
-    .brand span{ font-size:13px; text-transform:uppercase; color:var(--muted) }
 
-    .nav ul{ display:flex; gap:8px; list-style:none; padding:0; margin:0; flex:1 1 auto; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-    .nav ul::-webkit-scrollbar{ display:none }
-    .nav a{ display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:999px; text-decoration:none; color:var(--text);
-      border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); font-size:13px; line-height:1; min-height:40px;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease; white-space:nowrap; }
-    .nav a:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.35), 0 0 18px rgba(0,87,183,.25); border-color:rgba(255,255,255,.2);
-      background:linear-gradient(90deg, rgba(0,87,183,.18), rgba(255,215,0,.12)); }
+    /* ==== Дальше — без изменений структуры ==== */
+    .nav{
+      position:sticky; top:0; z-index:1000; backdrop-filter:saturate(140%) blur(14px);
+      background:linear-gradient(180deg, rgba(10,14,30,.62), rgba(10,14,30,.36));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{max-width:1200px; margin:0 auto; display:flex; gap:14px; align-items:center; justify-content:space-between; padding:12px 18px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent)}
+    .brand span{font-size:14px; text-transform:uppercase; color:var(--muted)}
+    .nav ul{display:flex; gap:8px; list-style:none; padding:0; margin:0; flex-wrap:wrap}
+    .nav a{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; text-decoration:none; color:var(--text);
+      border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .nav a:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 18px rgba(0,0,0,.35), 0 0 18px rgba(0,87,183,.25);
+      border-color:rgba(255,255,255,.2);
+      background:linear-gradient(90deg, rgba(0,87,183,.18), rgba(255,215,0,.12));
+    }
 
-    .lang-switch{ display:flex; gap:6px; align-items:center; flex:0 0 auto }
-    .lang-switch button{ background:rgba(255,255,255,.05); color:var(--text); border:1px solid rgba(255,255,255,.14);
-      padding:8px 10px; border-radius:10px; cursor:pointer; font-weight:700; letter-spacing:.4px; text-transform:uppercase; font-size:12px; min-height:40px; }
-    .lang-switch button.active{ background:linear-gradient(180deg, rgba(0,87,183,.24), rgba(0,87,183,.07)); border-color:var(--accent); box-shadow: 0 0 20px rgba(0,87,183,.25) }
+    .lang-switch{display:flex; gap:6px; align-items:center}
+    .lang-switch button{
+      background:rgba(255,255,255,.05); color:var(--text); border:1px solid rgba(255,255,255,.14);
+      padding:7px 10px; border-radius:10px; cursor:pointer; font-weight:700; letter-spacing:.4px; text-transform:uppercase;
+      transition:all .2s ease; font-size:12px;
+    }
+    .lang-switch button.active{
+      background:linear-gradient(180deg, rgba(0,87,183,.24), rgba(0,87,183,.07));
+      border-color:var(--accent);
+      box-shadow: 0 0 20px rgba(0,87,183,.25)
+    }
+    .lang-switch button:hover{transform:translateY(-1px)}
 
-    .hero{ max-width:1200px; margin:14px auto 20px; padding:0 14px; display:grid; gap:14px }
-    .headline{ display:grid; gap:12px; padding:20px; border-radius:var(--radius); background:var(--glass-bg); backdrop-filter: blur(16px) saturate(140%); border:1px solid var(--glass-stroke); box-shadow:var(--shadow); }
-    h1{ margin:0; font-size: clamp(22px, 5vw, 38px); letter-spacing:.6px; text-transform:uppercase }
-    .badges{ display:flex; flex-wrap:wrap; gap:8px }
-    .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-weight:800; letter-spacing:.4px; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow); font-size:12px; }
-    .badge.time{ color:#001018; background:linear-gradient(180deg, var(--accent-2), #bfa600); }
-    .badge.warn{ color:#001018; background:linear-gradient(180deg, var(--accent), #0b4ea0); }
-    .subtitle{ color:var(--muted) }
+    .hero{max-width:1200px; margin:18px auto 28px; padding:0 18px; display:grid; gap:18px}
+    .headline{display:grid; gap:14px; padding:26px; border-radius:var(--radius); background:var(--glass-bg); backdrop-filter: blur(16px) saturate(140%); border:1px solid var(--glass-stroke); box-shadow:var(--shadow);}
+    h1{margin:0; font-size: clamp(26px, 3.2vw, 40px); letter-spacing:.6px; text-transform:uppercase}
+    .badges{display:flex; flex-wrap:wrap; gap:10px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-weight:800; letter-spacing:.4px; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow);}
+    .badge.time{color:#001018; background:linear-gradient(180deg, var(--accent-2), #bfa600);}
+    .badge.warn{color:#001018; background:linear-gradient(180deg, var(--accent), #0b4ea0);}
+    .subtitle{color:var(--muted)}
 
-    section{ max-width:1200px; margin:0 auto; padding:20px 14px }
-    section .title{ display:flex; align-items:center; gap:10px; margin-bottom:12px }
-    section .title h2{ margin:0; font-size: clamp(18px, 4.5vw, 26px); }
+    section{max-width:1200px; margin:0 auto; padding:24px 18px}
+    section .title{display:flex; align-items:center; gap:10px; margin-bottom:14px}
+    section .title h2{margin:0; font-size: clamp(20px, 2.3vw, 28px);}
+    .card, .glass{background:var(--glass-bg); border:1px solid var(--glass-stroke); backdrop-filter: blur(14px) saturate(140%); box-shadow:var(--shadow); border-radius:var(--radius); padding:16px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;}
+    .card:hover{transform:scale(1.02); box-shadow:0 10px 26px rgba(0,0,0,.5), 0 0 18px rgba(0,87,183,.2); border-color:rgba(255,255,255,.28); background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));}
 
-    .card, .glass{ background:var(--glass-bg); border:1px solid var(--glass-stroke); backdrop-filter: blur(14px) saturate(140%); box-shadow:var(--shadow); border-radius:var(--radius); padding:14px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease; }
-    .card:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.5), 0 0 18px rgba(0,87,183,.2); border-color:rgba(255,255,255,.28); background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05)); }
-
-    .grid{ display:grid; gap:10px }
+    .grid{display:grid; gap:12px}
     @media (min-width:640px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
     @media (min-width:900px){ .grid.cols-3{grid-template-columns:1fr 1fr 1fr} }
 
-    .rule{ display:grid; gap:6px; position:relative }
-    .rule .name{ font-weight:800 }
-    .rule .penalty{ font-weight:900; letter-spacing:.3px }
-    .penalty .tag{ display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06) }
-    .penalty strong{ color:var(--accent-2) }
-    .penalty .hard{ color:var(--danger) }
+    .rule{display:grid; gap:8px; position:relative}
+    .rule .name{font-weight:800}
+    .rule .penalty{font-weight:900; letter-spacing:.3px}
+    .penalty .tag{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06)}
+    .penalty strong{color:var(--accent-2)}
+    .penalty .hard{color:var(--danger)}
 
-    .table-wrap{ overflow:auto; }
-    table{ width:100%; border-collapse:separate; border-spacing:0; min-width:720px }
-    th, td{ padding:12px 14px; text-align:left }
-    thead th{ position:sticky; top:0; backdrop-filter:blur(10px) saturate(140%);
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05)), linear-gradient(90deg, rgba(0,87,183,.22), rgba(255,215,0,.16));
+    .table-wrap{overflow:auto;}
+    table{width:100%; border-collapse:separate; border-spacing:0; min-width:720px}
+    th, td{padding:12px 14px; text-align:left}
+    thead th{
+      position:sticky; top:0; backdrop-filter:blur(10px) saturate(140%);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05)),
+        linear-gradient(90deg, rgba(0,87,183,.22), rgba(255,215,0,.16));
       border-bottom:1px solid rgba(255,255,255,.18)
     }
-    tbody tr td, thead th{ border-right:1px solid rgba(255,255,255,.08) }
-    tbody tr td:last-child, thead th:last-child{ border-right:none }
-    tbody tr{ background:var(--glass-bg); }
-    tbody tr + tr{ border-top:1px solid rgba(255,255,255,.08) }
-    tbody tr:hover{ box-shadow:inset 0 0 0 999px rgba(0,87,183,.08) }
+    tbody tr td, thead th{border-right:1px solid rgba(255,255,255,.08)}
+    tbody tr td:last-child, thead th:last-child{border-right:none}
+    tbody tr{background:var(--glass-bg);}
+    tbody tr + tr{border-top:1px solid rgba(255,255,255,.08)}
+    tbody tr:hover{box-shadow:inset 0 0 0 999px rgba(0,87,183,.08)}
 
-    /* ======= Мобильная таблица как карточки ======= */
-    @media (max-width:600px){
-      .table-wrap{ overflow:visible }
-      table{ border:0; min-width:0; }
-      thead{ display:none }
-      tbody{ display:grid; gap:10px }
-      tbody tr{ display:grid; border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden }
-      tbody td{ display:flex; justify-content:space-between; gap:10px; padding:10px 12px; border-right:none !important; border-top:1px solid rgba(255,255,255,.08) }
-      tbody td:first-child{ border-top:none; font-weight:800 }
-      tbody td::before{ content:attr(data-label); font-weight:700; color:var(--muted) }
-    }
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform:none}
 
-    .reveal{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease }
-    .reveal.show{ opacity:1; transform:none }
-
-    footer{ padding:28px 14px 70px; text-align:center; color:var(--muted) }
-    .hr{ height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent); margin:20px 0 }
-    .pill{ display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.04) }
-    .muted{ color:var(--muted) }
-    .stack{ display:grid; gap:10px }
-
-    /* ======= Адаптации под мобильные/производительность ======= */
-    @media (max-width:480px){
-      :root{ --radius:16px }
-      body::before, body::after{ opacity:.35; filter:blur(70px) }
-      .bg-blobs{ opacity:.45; filter:blur(50px) }
-      .nav-inner{ padding:8px 12px }
-      .headline{ padding:16px }
-      .badge{ padding:6px 10px; font-size:11px }
-    }
-
-    /* Пользовательские настройки по доступности */
-    @media (prefers-reduced-motion: reduce){
-      *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important }
-    }
+    footer{padding:32px 18px 70px; text-align:center; color:var(--muted)}
+    .hr{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent); margin:24px 0}
+    .pill{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.04)}
+    .muted{color:var(--muted)}
+    .stack{display:grid; gap:12px}
   </style>
 </head>
 <body>
+  <!-- UA-ленточка -->
   <div class="ua-bar" aria-hidden="true"></div>
+
   <div class="bg-blobs" aria-hidden="true"></div>
 
   <!-- Навигация -->
-  <nav class="nav" aria-label="Main">
+  <nav class="nav">
     <div class="nav-inner">
       <div class="brand">
-        <div class="dot" aria-hidden="true"></div>
+        <div class="dot"></div>
         <strong>METROLINE NORANK</strong>
         <span id="brandSubtitle">Единый устав</span>
       </div>
@@ -401,10 +399,10 @@
           ]
         },
         responsibility:[
-          {rule:'Проїзд на червоний сигнал', c3:'Зняття допуску / бан', c2:'Пониження / бан', c1:'Понижение / бан'},
+          {rule:'Проїзд на червоний сигнал', c3:'Зняття допуску / бан', c2:'Пониження / бан', c1:'Пониження / бан'},
           {rule:'Перешкоди руху', c3:'Бан 3 дні', c2:'Бан 5 днів', c1:'Бан 7 днів'},
           {rule:'Ігнор ДЦХ', c3:'Бан 1 день', c2:'Бан 3 дні', c1:'Бан 5 днів'},
-          {rule:'Технічні порушення', c3:'Бан 1–3 дні', c2:'Бан 3–5 дні', c1:'Бан 5–7 днів'},
+          {rule:'Технічні порушення', c3:'Бан 1–3 дні', c2:'Бан 3–5 днів', c1:'Бан 5–7 днів'},
           {rule:'Образи / неадекват', c3:'Бан за ситуацією', c2:'Бан за ситуацією', c1:'Бан за ситуацією'}
         ]
       },
@@ -484,26 +482,21 @@
     }
     function renderTable(rows){
       const tbody = document.getElementById('responsibilityTable');
-      const t = i18n[currentLocale].sec6.th;
       tbody.innerHTML = '';
       rows.forEach(r=>{
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td data-label="${t.rule}">${r.rule}</td>
-          <td data-label="${t.c3}"><strong>${r.c3}</strong></td>
-          <td data-label="${t.c2}"><strong>${r.c2}</strong></td>
-          <td data-label="${t.c1}"><strong>${r.c1}</strong></td>
+          <td>${r.rule}</td>
+          <td><strong>${r.c3}</strong></td>
+          <td><strong>${r.c2}</strong></td>
+          <td><strong>${r.c1}</strong></td>
         `;
         tbody.appendChild(tr);
       });
     }
 
     // ======= Применение локали (перерисовывает ВСЁ) =======
-    let currentLocale = localStorage.getItem('mln_locale') || 'ru';
-
     function applyI18n(locale){
-      currentLocale = locale;
-      localStorage.setItem('mln_locale', locale);
       const t = i18n[locale];
       // Меню
       document.querySelectorAll('[data-i18n^="menu."]').forEach(a=>{
@@ -561,7 +554,8 @@
     }
 
     // ======= Инициализация =======
-    applyI18n(currentLocale);
+    const DEFAULT_LOCALE = 'ru';
+    applyI18n(DEFAULT_LOCALE);
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Переключение языка
@@ -570,12 +564,8 @@
         document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         applyI18n(btn.dataset.lang);
-      }, {passive:true})
+      })
     });
-
-    // Подсветить активную кнопку локали из хранилища
-    const activeBtn = document.querySelector(`.lang-switch button[data-lang="${currentLocale}"]`);
-    if(activeBtn){ activeBtn.classList.add('active'); }
 
     // Плавный якорь с учётом sticky
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -584,13 +574,10 @@
         if(id.length>1){
           e.preventDefault();
           const target = document.querySelector(id);
-          if(!target) return;
-          const nav = document.querySelector('.nav');
-          const offset = (nav?.offsetHeight || 70) + 6; // + ua-bar
-          const y = target.getBoundingClientRect().top + window.scrollY - offset;
+          const y = target.getBoundingClientRect().top + window.scrollY - 70;
           window.scrollTo({top:y, behavior:'smooth'});
         }
-      }, {passive:false});
+      });
     });
   </script>
 </body>
